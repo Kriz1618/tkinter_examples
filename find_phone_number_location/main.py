@@ -4,7 +4,7 @@ from tkinter import *
 
 app = Tk()
 app.configure(background='gray')
-app.geometry('520x400')
+app.geometry('600x390')
 app.resizable(0,0)
 app.title('Phone Number Locator App')
 
@@ -13,22 +13,22 @@ provider = StringVar(value='Provider:')
 time_zone = StringVar(value='Time Zone:')
 
 heading_text = Label(app, text='Internet speed evaluator App', font='Arial 16 bold', fg='yellow', bg='black')
-heading_text.grid(row=0, column=0, pady=30)
+heading_text.grid(row=0, column=1, pady=30)
 
 type_label = Label(app, text='Type a phone number with the country code:', font='Arial 12 bold', fg='white', bg='green')
-type_label.grid(row=2, column=0, pady=10)
+type_label.place(x=0, y=68)
 
 phone_entry = Entry(app, width=15, font='Arial 11 bold')
-phone_entry.grid(row=3, column=0, pady=10)
+phone_entry.place(x=430, y=68)
 
 country_label = Label(app, textvariable=country, font='Arial 11 bold', fg='white', bg='gray')
-country_label.grid(row=4, column=0, pady=10)
+country_label.place(x=20, y=120)
 
 provider_label = Label(app, textvariable=provider, font='Arial 11 bold', fg='white', bg='gray')
-provider_label.grid(row=5, column=0, pady=10)
+provider_label.place(x=20, y=180)
 
 tz_label = Label(app, textvariable=time_zone, font='Arial 11 bold', fg='white', bg='gray')
-tz_label.grid(row=6, column=0, pady=10)
+tz_label.place(x=20, y=240)
 
 def locate_phone():
     phone_number = phonenumbers.parse(phone_entry.get())
@@ -40,9 +40,10 @@ def locate_phone():
     time_zone.set(f"Time Zone: {t_zone}")
 
 btn = Button(app, text='Locate Number', font='Arial 14 bold', fg='white', bg='green', border=5, command=locate_phone)
-btn.grid(row=7, column=0, pady=20)
+btn.place(x=20, y=290)
 
 app.mainloop()
+
 # phone = input('Enter phone number with the country code: ')
 # phone_number = phonenumbers.parse(phone)
 
